@@ -1,6 +1,14 @@
 #include <iostream>
+#include "Uint.cpp"
+
+using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    Uint test = 3;
+
+    cout << test.show();
+
     return 0;
+
 }
