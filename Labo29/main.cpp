@@ -5,9 +5,8 @@ using namespace std;
 
 int main() {
 
-
-    Uint testUint(5648);
-    Uint testString("2154");
+    Uint testUint(1);
+    Uint testString("2");
 
     testUint.affichage();
     testString.affichage();
