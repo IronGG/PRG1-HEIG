@@ -25,6 +25,14 @@ Uint Uint::operator+(const Uint &addition) const {
     return temp;
 }
 
+Uint Uint::operator*(const Uint &multiplication) const {
+
+    // Ceci est mon test à moi !
+
+    return Uint();
+
+}
+
 //Uint Uint::comp(Uint a, Uint b) {
 //    if(a < b)
 //    {
