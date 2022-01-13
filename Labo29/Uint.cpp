@@ -31,7 +31,7 @@
 Uint Uint::operator+(const Uint &val) const {
 
     int retenue = 0;
-    Uint temp;
+    Uint temp = 0;
 
     for (int i = 0; i < 499; ++i) {
 

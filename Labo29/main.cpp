@@ -13,6 +13,10 @@ int main() {
     testUint.affichage();
     testString.affichage();
 
+    //test addition
+    Uint temporaire = testUint + testString;
+    temporaire.affichage();
+
     return 0;
 
 }
