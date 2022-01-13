@@ -3,26 +3,34 @@
 //
 
 #include "Uint.h"
-//commentaire de test
+
 Uint::Uint() {
 
 }
 
 Uint Uint::operator+(const Uint &addition) const {
 
-    uint64_t retenue = 0;
     Uint temp = 0;
+    uint64_t temp = 0;
 
-    for (uint64_t i = 0; i < valeur.size(); ++i) {
-        if (valeur.at(i) + addition.valeur.at(i) + retenue >= 10) {
-            temp.valeur.at(i) = (valeur.at(i) + addition.valeur.at(i)) % 10 + retenue;
-            retenue = (valeur.at(i) + addition.valeur.at(i)) / 10;
-        } else {
-            temp.valeur.at(i) = valeur.at(i) + addition.valeur.at(i) + retenue;
-            retenue = 0;
-        }
+    for(int i = 0; i < valeur.size(); i++){
+        if()
     }
-    return temp;
+
+
+//    uint64_t retenue = 0;
+//    Uint temp = 0;
+//
+//    for (uint64_t i = 0; i < valeur.size(); ++i) {
+//        if (valeur.at(i) + addition.valeur.at(i) + retenue >= 10) {
+//            temp.valeur.at(i) = (valeur.at(i) + addition.valeur.at(i)) % 10 + retenue;
+//            retenue = (valeur.at(i) + addition.valeur.at(i)) / 10;
+//        } else {
+//            temp.valeur.at(i) = valeur.at(i) + addition.valeur.at(i) + retenue;
+//            retenue = 0;
+//        }
+//    }
+//    return temp;
 }
 
 Uint Uint::operator*(const Uint &multiplication) const {

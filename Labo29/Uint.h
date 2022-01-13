@@ -62,8 +62,10 @@ public :
 
         std::cout << "le nombre est : ";
 
-        for (int i = 0; i < valeur.size(); i++)
-            std::cout << valeur.at(i);
+        for (int i : valeur){
+            std::cout << i;
+        }
+
 
         std::cout << std::endl;
 

@@ -16,8 +16,8 @@ int main() {
     testString.capacity();
 
     //test addition
-    //Uint temporaire = testUint + testString;
-    //temporaire.affichage();
+    Uint temporaire = testUint + testString;
+    temporaire.affichage();
 
     return 0;
 }
