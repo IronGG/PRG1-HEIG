@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
 
-    Uint testUint = 73;
+    Uint testUint(543);
     Uint testString("356");
 
     testUint.affichage();

@@ -21,24 +21,24 @@ public:
 
         // TODO: Inverser l'ordre !!
 
-        std::cout << stringVal[0];
+/*        std::cout << stringVal[0];
         std::cout << stringVal[1];
         std::cout << stringVal[2];
-        std::cout << stringVal.length();
+        std::cout << stringVal.length();*/
 
         for (int i = 0; i <= stringVal.length() - 1; ++i) {
 
-            std::cout << std::endl;
+            //std::cout << std::endl;
 
             this->valeur[i] = stringVal[i] - '0';
 
-            std::cout << stringVal[0];
+/*            std::cout << stringVal[0];
             std::cout << stringVal[1];
             std::cout << stringVal[2];
             std::cout << "---";
             std::cout << this->valeur[0];
             std::cout << this->valeur[1];
-            std::cout << this->valeur[2];
+            std::cout << this->valeur[2];*/
         }
 
     } // TODO: trouver une solution pour le string
@@ -46,18 +46,12 @@ public:
 
     Uint(uint64_t uintVal) {
 
-        std::cout << "uintVal = " << uintVal % 10 << std::endl;
-
         int j = 0;
-        int temp = 0;
-        std::cout << "uintVal = " << uintVal % 10 << std::endl;
-        for(int i = 1; i <= uintVal; i *= 10)
+        for(long long i = 1; i <= uintVal; i *= 10)
         {
-            this->valeur[j] = (uintVal / i) % 10;
-            //uintVal = uintVal / 10;
+            this->valeur[j] = (uintVal / i) % 10; // 34 % 10 = 4 ^||| 34 / 10 = 4587 -> divise par i
             j++;
         }
-        //this->valeur = valeur;
     }
 
     //  constructeur de copie
@@ -77,7 +71,7 @@ public:
     Uint operator>=(const Uint& valeur) const;
     Uint operator==(const Uint& valeur) const;
 
-    affichage() {
+    void affichage() {
 
 
 /*        int x = 0;

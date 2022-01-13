@@ -30,9 +30,27 @@
 //}
 Uint Uint::operator+(const Uint &val) const {
 
+    int retenue = 0;
+    Uint temp;
+
+    for (int i = 0; i < 499; ++i) {
+
+        if (this->valeur[i] + val.valeur[i] <= 10) {
+            temp.valeur[i] = (this->valeur[i] + val.valeur[i]) % 10 + retenue;
+            retenue = (this->valeur[i] + val.valeur[i]) / 10;
+        } else {
+            temp.valeur[i] = this->valeur[i] + val.valeur[i] + retenue;
+            retenue = 0;
+        }
+
+    }
+
+        return temp;
+
+    }
+
     //Uint temp;
     //temp.valeur = this->valeur + val.valeur;
 
     //return temp;
 
-}
