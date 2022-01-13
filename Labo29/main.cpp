@@ -1,13 +1,17 @@
 #include <iostream>
-#include "Uint.cpp"
+#include "Uint.h"
+#include <string>
 
 using namespace std;
 
 int main() {
 
-    Uint test = 3;
 
-    cout << test.show();
+    Uint testUint = 73;
+    Uint testString("356");
+
+    testUint.affichage();
+    testString.affichage();
 
     return 0;
 
