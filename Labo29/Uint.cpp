@@ -29,6 +29,10 @@ Uint Uint::operator*(const Uint &multiplication) const {
 
     // Ceci est mon test à moi !
 
+    for (int i = 0; i < ; ++i) {
+        
+    }
+
     return Uint();
 
 }
