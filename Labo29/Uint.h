@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cctype>
+#include <sstream>
+#include <stdexcept>
 
 using std::string;
 using std::vector;
@@ -16,12 +19,12 @@ public :
     //Constructeurs
     Uint();
 
-    Uint(uint64_t varUint64) {
+    Uint(std::uint64_t varUint64) {
         valeur.clear();
         for (uint64_t i = 1; i <= varUint64; i *= 10) {
             this->valeur.push_back(varUint64 / i % 10);
         }
-        std::reverse(valeur.begin(), valeur.end());
+        //std::reverse(valeur.begin(), valeur.end());
         valeur.shrink_to_fit();
     }
 
@@ -36,40 +39,62 @@ public :
     }
 
     //Operateurs
+    Uint &operator+=(const Uint &addition);
 
-    Uint operator+(const Uint &addition) const;
+    friend Uint operator+(Uint gauche, const Uint &droite) { return (gauche += droite); }
 
-    Uint operator-(const Uint &soustraction) const;
+    Uint &operator++(int) {
+        Uint temp = *this;
+        temp += 1;
+        return (*this = temp);
+    }
 
-    Uint operator=(const Uint &egalite) const;
+    Uint &operator++() {
+        Uint temp = *this;
+        temp += 1;
+        return (*this = temp);
+    }
 
-    Uint operator*(const Uint &multiplication) const;
+    Uint operator-=(const Uint &soustraction);
 
-    Uint operator<(const Uint &plusPetitQue) const;
+    friend Uint operator-(Uint gauche, const Uint &droite) { return gauche -= droite; }
 
-    Uint operator<=(const Uint &plusPetitQueEgale) const;
+    Uint operator*=(const Uint &multiplication);
 
-    Uint operator>(const Uint &plusGrandQue) const;
+    friend Uint operator*(Uint gauche, const Uint &droite) { return gauche *= droite; }
 
-    Uint operator>=(const Uint &plusGrandQueEgale) const;
+    //booléens
+    bool operator<(const Uint &droite) const;
 
-    Uint operator==(const Uint &valeur) const;
+    bool operator<=(const Uint &droite) const;
+
+    bool operator>(const Uint &droite) const;
+
+    bool operator>=(const Uint &droite) const;
+
+    bool operator==(const Uint &droite) const;
+
+    bool operator!=(const Uint &droite) const;
+
+    //affectation
+
+    //affichage
+    friend std::ostream &operator<<(std::ostream &os, const Uint &a) {
+        for (auto k = a.valeur.crbegin(); k != a.valeur.crend(); k++) {
+            os << *k;
+        }
+        return os;
+    }
 
     //fonctions
     //Uint comp(Uint a, Uint b);
     void affichage() {
-        std::cout << std::endl << "--------------" << std::endl;
-
-        std::cout << "le nombre est : ";
-
-        for (int i : valeur){
-            std::cout << i;
-        }
-
-
         std::cout << std::endl;
-
-        std::cout << "--------------" << std::endl;
+        std::cout << "le nombre est : ";
+        for (int i = valeur.size() - 1; i >= 0; i--) {
+            std::cout << valeur.at(i);
+        }
+        std::cout << std::endl;
     };
 
     void capacity() {
@@ -79,6 +104,8 @@ public :
         std::cout << std::endl;
         std::cout << "--------------" << std::endl;
     };
+
+    static Uint comp(Uint a, Uint b);
 
 private :
     std::vector<int> valeur;
